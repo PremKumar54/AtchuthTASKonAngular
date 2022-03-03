@@ -1,0 +1,32 @@
+.card{
+    top:5%;
+    left:15%;
+    width:70%;
+    height:fit-content;
+    padding:3%;
+    background-color: rgb(199, 177, 177);
+    color: white;
+}
+.table-responsive{
+    border: 2px solid black;
+    margin-left:10%;
+    margin-right: 10%;
+    margin-top: 4%;
+
+}
+.btn1{
+    float: right;
+    background-color: blueviolet;
+    color: white;
+}
+
+.card1{
+   margin-top:6%;
+   margin-left:0;
+}
+.col-md-5{
+   margin-top:4.4%;   
+}
+.mat{
+    height:35px;
+}

@@ -1,0 +1,98 @@
+<div class="card">
+    <form class="row g-3" [formGroup]= "userForm" (ngSubmit)= "onUpdate()">
+      <div class="col-md-6">
+        <label for="inputFullname4" class="form-label">Fullname</label>
+        <input type="text" class="form-control" id="inputFullname4" formControlName="fullName" required>
+      </div>
+      <div class="class col-md-6">
+  
+      </div>
+  
+      <div class="col-md-1">
+        <label for="inputNumber" class="form-label">Number</label>
+        <input type="text" class="form-control" id="inputnumber" placeholder="+" value="+" formControlName="countryNo" required>
+      </div>
+      <div class="col-md-5">
+        <input type="text" class="form-control" id="inputnumber" placeholder="number" formControlName="mobileNo" required>
+      </div>
+      
+      <div class="col-md-6">
+        <label form="inputemail4" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inlineFormInputGroupemaol" placeholder="email" formControlName="email" required>
+      </div>
+      <div class="class col-md-6">
+        <label  class="form-label">Job Type</label><br/>
+        <mat-button-toggle-group class="mat" #group="matButtonToggleGroup">
+          <mat-button-toggle value="FT">
+            <p [style.margin-top]="'-40%'">FT</p>
+          </mat-button-toggle>
+          <mat-button-toggle  value="PT">
+            <p [style.margin-top]="'-35%'">PT</p>
+          </mat-button-toggle>
+          <mat-button-toggle  value="Consultant">
+            <p [style.margin-top]="'-10%'">Consultant</p>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+        <div class="example-selected-value">Selected value: {{group.value}}</div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="card1">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+    </div>
+    
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">Prefferd Location</label>
+          <select id="inputState" class="form-select">
+              <option selected>Chennai</option>
+              <option value="1">Bangalore</option>
+              <option value="2">Hyderabad</option>
+              <option value="3">Vizag</option>
+            </select>
+      </div>
+      <!--<div class="col-md-4">
+        <label class="form-label">Prefered Location</label>
+        <mat-select placeholder="Select Location" multiple>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </div>-->
+      
+  
+      <div class="col-12">
+        <button type="submit" class="btn1" matTooltip="click to Add or Update" (click)= "show(userForm.value)" >+Add / Update</button>
+      </div>
+    </form>
+  </div>
+  
+  
+  
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">FullName</th>
+          <th scope="col">Email</th>
+          <th scope="col">mobileNo</th>
+          <th scope="col">jobType</th>
+          <th scope="col">preferedLocation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of Books; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{book.fullName}}</td>
+          <td>{{book.email}}</td>
+          <td>{{book.mobileNo}}</td>
+          <td>{{book.jobType}}</td>
+          <td>{{book.preferedLocation}}</td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-primary" routerLink="/edit-book/{{book._id}}">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="delete(book._id, i)">Delete</button>  
+          </tr>
+      </tbody>
+    </table>
+  </div>
