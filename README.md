@@ -8,5 +8,5 @@ npm start
 connect your local MONGODB by Url in Node->db.js
 
 in Node -->
-node.index.js 
+node  index.js 
 to start backend  server
